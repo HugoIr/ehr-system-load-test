@@ -126,8 +126,8 @@ class EHRSystemLoadTest(HttpUser):
     
     @task
     def get_insured_ehr(self):
-        # self.client.get("/insurance/ehr/", headers={'Authorization': "insA@gmail.com"})
-        self.client.get("/insurance/ehr/", headers=self.header_insurance)
+        self.client.get("/insurance/ehr/", headers={'Authorization': "ins3@gmail.com"})
+        # self.client.get("/insurance/ehr/", headers=self.header_insurance)
         
     def on_start(self):
         # Read user mock
