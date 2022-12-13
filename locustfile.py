@@ -24,7 +24,7 @@ class EHRSystemLoadTest(HttpUser):
 
     @task
     def create_ehr(self):
-        self.client.post(f"/ehr/", json={
+        response = self.client.post(f"/ehr/", json={
                 "name": "budi",
                 "dateOfBirth": "1990-11-29T21:02",
                 "address": "Jalan Kemanggisan Raya no. 1, Jakarta Barat",
