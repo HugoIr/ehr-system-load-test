@@ -60,6 +60,7 @@ class EHRSystemLoadTest(HttpUser):
                 "insuranceName": "insuranceA"
                 
             }, headers=self.header)
+        self.list_ehr_id.append(ehr['ehrId'])
     
 
     @task
@@ -110,24 +111,24 @@ class EHRSystemLoadTest(HttpUser):
                 
         }, headers=self.header)
     
-    @task
-    def get_detail_ehr(self):
-        ehr_id = random.choice(self.list_ehr_id)
-        self.client.get(f"/ehr/{ehr_id}", headers=self.header)
+    # @task
+    # def get_detail_ehr(self):
+    #     ehr_id = random.choice(self.list_ehr_id)
+    #     self.client.get(f"/ehr/{ehr_id}", headers=self.header)
     
-    @task
-    def get_history_ehr(self):
-        ehr_id = random.choice(self.list_ehr_id)
-        self.client.get(f"/ehr/history/{ehr_id}", headers=self.header)
+    # @task
+    # def get_history_ehr(self):
+    #     ehr_id = random.choice(self.list_ehr_id)
+    #     self.client.get(f"/ehr/history/{ehr_id}", headers=self.header)
     
-    @task
-    def get_all_ehr(self):
-        self.client.get("/ehr/", headers=self.header)
+    # @task
+    # def get_all_ehr(self):
+    #     self.client.get("/ehr/", headers=self.header)
     
-    @task
-    def get_insured_ehr(self):
-        self.client.get("/insurance/ehr/", headers={'Authorization': "ins3@gmail.com"})
-        # self.client.get("/insurance/ehr/", headers=self.header_insurance)
+    # @task
+    # def get_insured_ehr(self):
+    #     self.client.get("/insurance/ehr/", headers={'Authorization': "ins3@gmail.com"})
+    #     # self.client.get("/insurance/ehr/", headers=self.header_insurance)
         
     def on_start(self):
         # Read user mock
