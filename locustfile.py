@@ -60,6 +60,7 @@ class EHRSystemLoadTest(HttpUser):
                 "insuranceName": "insuranceA"
                 
             }, headers=self.header)
+        ehr = response.json()
         self.list_ehr_id.append(ehr['ehrId'])
     
 
