@@ -61,7 +61,8 @@ class EHRSystemLoadTest(HttpUser):
                 
             }, headers=self.header)
         ehr = response.json()
-        self.list_ehr_id.append(ehr['ehrId'])
+        if (ehr.get('ehrId', None) != None):
+            self.list_ehr_id.append(ehr['ehrId'])
     
 
     @task
@@ -207,7 +208,8 @@ class EHRSystemLoadTest(HttpUser):
                     
                 }, headers=self.header)
                 ehr = response.json()
-                self.list_ehr_id.append(ehr['ehrId'])
+                if (ehr.get('ehrId', None) != None):
+                    self.list_ehr_id.append(ehr['ehrId'])
         print('self.header ', self.header)
         print('self.header_insurance ', self.header_insurance)
         
