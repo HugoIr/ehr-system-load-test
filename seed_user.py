@@ -50,7 +50,7 @@ with open('MOCK_USER.csv', newline='') as csv_file:
 
         
 # register a user for insurance auditor        
-session.post(f"{config['backend_url']}/register/", json={
+session.post(f"{base_url}/register/", json={
     "email": "ins3@gmail.com",
     "organization": "insurance.insuranceA",
     "organizationType": "insurance"
